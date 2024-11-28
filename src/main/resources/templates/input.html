@@ -7,14 +7,14 @@
 <body>
     <h1 th:text="#{content.title}">タイトル</h1>
     <h2 th:text="#{content.messageInput}">入力</h2>
-    <p>値を入力してください。</p>
+    <p th:text="#{content.message}">入力してください</p>
 
     <!--/* th:unlessではダメ（previousがnullと一致しないなら常に表示するため、空欄などでも表示されてしまう） */-->
     <p th:if="${previous != null }" th:text="'前回入力された値は 「' + ${previous} + '」 でした。'"></p>
 
     <form method="post" action="/output">
         <input type="text" name="previous">
-        <button type="submit">送信</button>
+        <button type="submit" th:text="#{content.send}">送信ボタン</button>
     </form>
 </body>
 </html>
